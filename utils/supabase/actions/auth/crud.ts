@@ -2,7 +2,28 @@
 import { User, AuthResponse } from '@/utils/types/auth';
 import { createClient } from "@/utils/supabase/server";
 
-export const createUser = async (user: User) => { };
+export const createUser = async (user: User): Promise<AuthResponse> => {
+  // initialize supabase client
+  const supabase = await createClient();
+
+  // Insert / create user in the database
+  const { error } = await supabase.from("users").insert(user);
+
+  // error handling
+  if (error) {
+    return {
+      success: false,
+      error: true,
+      message: error.message,
+    }
+  }
+
+  // return success response
+  return {
+    success: true,
+    error: false,
+  }
+};
 
 export const readUser = async (): Promise<AuthResponse> => {
   // initialize supabase client
