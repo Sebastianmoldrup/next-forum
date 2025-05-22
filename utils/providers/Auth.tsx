@@ -21,6 +21,14 @@ export const useAuth = () => {
 };
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
-  // State
+  // State management for user authentication
   const [user, setUser] = useState<User | null>(null);
+
+  useEffect(() => {
+    const getUser = async () => {
+      const { success, error, data } = await readUser();
+    };
+  }, []);
+
+
 }

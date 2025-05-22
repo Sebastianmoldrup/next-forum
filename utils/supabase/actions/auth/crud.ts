@@ -41,6 +41,7 @@ export const readUser = async (): Promise<AuthResponse> => {
   }
   console.log(user);
 
+  // return success response
   return { success: true, error: false }
 };
 
