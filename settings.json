@@ -1,0 +1,51 @@
+{
+  // Vim settings
+  "vim.leader": "<space>",
+  "vim.useCtrlKeys": true,
+  "vim.whichKeyShowDelay": 100,
+  "vim.useWhichKeyLabel": true,
+
+  // Which Key settings
+  "whichkey.sortOrder": "alphabetically",
+  "whichkey.delay": 0,
+  "whichkey.bindings": [
+    {
+      "key": "<space>",
+      "name": "Leader",
+      "type": "bindings",
+      "bindings": [
+        {
+          "key": "f",
+          "name": "Find/Files",
+          "type": "bindings",
+          "bindings": [
+            {
+              "key": "f",
+              "name": "Find File",
+              "type": "command",
+              "command": "workbench.action.quickOpen"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+
+  // Vim keybindings
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+  
+  "vim.visualModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<space>"],
+      "commands": ["whichkey.show"]
+    }
+  ],
+
+  "whichkey.useFullWidthCharacters": true,
+  "whichkey.bindingOverrides": []
+}
